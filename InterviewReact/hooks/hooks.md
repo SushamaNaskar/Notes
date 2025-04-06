@@ -1,0 +1,2 @@
+- By default, when a component re-renders, React re-renders all of its children recursively. 
+- In JavaScript, a function () {} or () => {} always creates a different function, similar to how the {} object literal always creates a new object.
