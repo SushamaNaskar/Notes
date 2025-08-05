@@ -1,16 +1,24 @@
 # The Object type
 Although instances of Object don’t have much functionality, they are ideally suited to storing and transmitting data around an
 application.
-There are two ways to explicitly create an instance of Object. The first is to use the new operator with the Object constructor like this:
+There are two ways to explicitly create an instance of Object:
+1. use the new operator with the Object constructor like this:
+
 let person = new Object();
+
 person.name = "Nicholas";
 person.age = 29;
 
-The other way is to use object literal notation:
+2. use object literal notation:
+
 let person = {
-name: "Nicholas",
-age: 29
+  name: "Nicholas",
+  age: 29,
+  5:true
 };
+
+# Note 
+- numeric property names are automatically converted to strings.
 
 #  expression context 
 An expression context in ECMAScript is a context in which a value (expression) is expected.

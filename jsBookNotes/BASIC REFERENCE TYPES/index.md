@@ -2,7 +2,7 @@ string : 194
 171 213
 
 # A reference value (object) 
-- A reference value (object) is an instance of a specific reference type. 
+<!-- - A reference value (object) is an instance of a specific reference type. -->
 - In ECMAScript, reference types are structures used to group data and functionality together.
 - Reference types are also sometimes called object definitions because they describe the properties and methods that objects should have.
 - objects are considered to be instances of a particular reference type.

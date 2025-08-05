@@ -25,23 +25,29 @@ person2.greet(); // "Hello, my name is Bob"
 
 # The Factory Pattern
 function createPerson(name, age, job) {
-let o = new Object();
-o.name = name;
-o.age = age;
-o.job = job;
-o.sayName = function() {
-console.log(this.name);
-};
-return o;
+
+    let o = new Object();
+     o.name = name;  
+     o.age = age;
+    o.job = job;
+    o.sayName = function() {
+        console.log(this.name);
+    };
+   return o;
 }
+
 let person1 = createPerson("Nicholas", 29, "Software Engineer");
 let person2 = createPerson("Greg", 27, "Doctor");
 
 # Problem of using  Object literals and The Factory Pattern to create an object
-1. The greet function is duplicated in both objects,  wasting memory.
-2. There’s no easy way to update the greet function for all objects.
-3. If we need 100 persons, we repeat the function 100 times!
-4. the factory pattern didn’t address the issue of object identification (what type of object an object is).
+1. the factory pattern didn’t address the issue of object identification (what type of object an object is). 
+- we use Function Constructor to resolve this issue
+
+
+2. The greet function is duplicated in both objects,  wasting memory.
+2. There’s no easy way to update the greet function for all objects. (In programming, we often want to take something and extend it/inheritance)
+
+- we use prototypes to resolve this issue
 
 
 # Solution: Use prototype (via Constructor Functions or Classes)

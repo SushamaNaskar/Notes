@@ -48,3 +48,49 @@ fetchData(url)
 };
 
 run();
+
+
+
+
+
+# Why add await before res.JSON()
+
+
+ Step-by-Step Breakdown
+🟢 Step 1: fetch(url)
+The browser sends a request over the network (TCP/IP).
+
+It waits only for the response headers to come back (status code, content-type, etc.).
+
+Once the headers are in, it resolves and gives you a Response object.
+
+But the body (the actual data) has not been fully downloaded yet — it's coming in as a stream.
+
+🟡 Step 2: response.json()
+The body is still streaming in — the browser reads it in chunks over time.
+
+Since reading a stream is asynchronous (you don’t know exactly when the next chunk will arrive), .json() returns a promise.
+
+Only after all chunks have been read, the browser can assemble them into a string, and then parse that string into a JavaScript object.
+
+
+Parsing JSON is synchronous — turning a string into a JS object with JSON.parse() is fast and doesn't involve any await.
+
+⏳ But getting the full response body (the string that will be parsed) from the stream is asynchronous, which is why .json() returns a promise.
+
+
+await fetch() → async (network IO)
+
+await res.json() → async (stream parsing)
+
+data.filter(...) → sync (in-memory JS operation)
+
+## Other Body Parsers
+The same idea applies to:
+
+response.text()
+
+response.blob()
+
+response.arrayBuffer()
+

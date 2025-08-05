@@ -175,7 +175,7 @@ doTask(afterTask);
  const sayHello = function() {
   console.log('Hello!');
 };
-
+ 
 2. Passed as an argument to another function
 
 function greet(callback) {

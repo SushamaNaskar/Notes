@@ -1,14 +1,10 @@
 # Why we use Call, Apply and Bind method
-By using the call(), apply(), and bind() methods, you can avoid repeating code that sets the this value or passes arguments to a function. Instead, you can create a single function that accepts a this value and arguments, and then use the call(), apply(), or bind() methods to invoke the function with the correct context and arguments. This can save you time and reduce the amount of code you need to write.
-
-- These are JavaScript methods that help control how a function is called and how the this context is set.
-
-- Instead of writing the same logic multiple times to set the value of this or pass arguments, these methods allow us to reuse code efficiently.
-- we can use call(), apply(), or bind() to invoke the function with the right this context and arguments, making the code cleaner and more flexible.
+- They solve the problem of losing this when a method is detached from its object.
+- we can borrow method of one object and use it for other objects.
 
 
 
-# call() and apply
+# call() and apply()
 - methods immediately execute a function with a specified this value and arguments.
 
 ## ex1:
@@ -56,7 +52,7 @@ displayValue.call(person1,'Karnataka')
 displayValue.apply(person1,['Karnataka'])
 
 # bind():
-- Creates a new function with a specified this value, allowing you to defer the execution of the original function until later
+- Creates a new function with a specified this value, allowing to defer the execution of the original function until later, which is great for callbacks and event handlers.
 
 const person={
     name:'rahul',
@@ -93,3 +89,23 @@ let person1={
 
 //function borrowing
 person.displayValue.call(person1)
+
+
+# create own call, apply and bind
+
+Function.prototype.myCall = function (context, ...args) {
+  // If no context is provided, use the global object or window (for non-strict mode)
+  context = context || globalThis;
+
+  // Create a unique property on the context object to hold the function temporarily
+  const uniqueKey = Symbol('uniqueKey');
+  context[uniqueKey] = this; // `this` refers to the original function
+
+  // Call the function with the provided context and arguments
+  const result = context[uniqueKey](...args);
+
+  // Clean up by deleting the temporary property
+  delete context[uniqueKey];
+
+  return result;
+};
