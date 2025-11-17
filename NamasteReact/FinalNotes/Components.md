@@ -1,20 +1,22 @@
 # What are Components?
-<!-- - Conceptually, components are like JavaScript functions. They accept arbitrary inputs (called “props”) and return a React element describing what should appear on the screen. -->
 - Components let us split the UI into independent, reusable pieces, and think about each piece in isolation.
 
-There are 2 types of components:
+# There are 2 types of components:
 1. Class-based Components
 2. Functional Components
 
 # What is a React Functional Components?
-Functional Components are just like a JavaScript functions. They accept arbitrary inputs (called “props”) and return React elements describing what should appear on the screen.
+- Functional Components are just like a JavaScript functions. They accept arbitrary inputs (called “props”) and return React elements describing what should appear on the screen.
 
-Always name React Functional Component with Capital Letters otherwise you will confuse it with normal function
+- Always name React Functional Component with Capital Letters otherwise you will confuse it with normal function
 
+```
 ex: 
+
 const HeadingComponent1 = () => (
  <h1>Namaste</h1>
 )
+```
 
 # Class-based Components
 These are ES6 classes that extend the component class (React.Component or React.PureComponent) of the React library . They have a render() method where you define the structure of your component's UI using JSX.
@@ -57,13 +59,13 @@ const newComponent=withHigherOrderComponent(component);
 
 <newComponent name={name}/>
 
-# how to render a component?
-- To render a functional component we call them ‘<Heading />’. This is the syntax that Babel understands. 
+# How to render a component?
+- To render a functional component we call them ```<Heading />```. This is the syntax that Babel understands. 
 - You can also call them using these ways,
-1. <Heading></Heading>
+1. ```<Heading></Heading>```
 2. {Heading()}
 
 
-# {TitleComponent} vs <TitleComponent/>
-Use {TitleComponent} when TitleComponent is a variable holding a React component.
-Use {<TitleComponent/>} as the standard way to render a React component in JSX.
+# ```{TitleComponent} vs <TitleComponent/>```
+- Use {TitleComponent} when TitleComponent is a variable holding a React component.
+- Use ```{<TitleComponent/>}``` as the standard way to render a React component in JSX.

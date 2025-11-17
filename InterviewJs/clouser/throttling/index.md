@@ -42,6 +42,7 @@ function useThrottle(callback, delay) {
     const now = Date.now();
 
     // Check if enough time has passed since the last call
+    
     if (now - lastCallTime.current >= delay) {
       lastCallTime.current = now;
       callback(...args); // Execute the callback function

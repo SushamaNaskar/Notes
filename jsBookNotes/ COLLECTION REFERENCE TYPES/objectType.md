@@ -40,3 +40,5 @@ In this example, the left curly brace ({) signifies the beginning of an object l
 this example:
 let propertyName = "name";
 console.log(person[propertyName]); // "Nicholas"
+
+

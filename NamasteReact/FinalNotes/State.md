@@ -87,6 +87,48 @@ const [count, setCount] = useState(0);
 - controlled components refer to the components where the state and behaviors are controlled by Parent components 
 - Uncontrolled components are the ones having control of their own state and manage the behaviors themselves.
 
+# Pure Component
+- In React, a Pure Component is a component that only re-renders when its props or state actually change — it skips re-rendering if the data is the same.
+
+## creating pure component:
+1. Class Component
+Using React.PureComponent instead of React.Component.
+
+```
+import React from "react";
+
+class MyComponent extends React.PureComponent {
+  render() {
+    console.log("Rendered");
+    return <div>{this.props.value}</div>;
+  }
+}
+```
+### What happens:
+- React automatically does a shallow comparison of props and state.
+- If nothing changed, it skips re-rendering — improving performance.
+
+2. Functional Component
+Using React.memo() to wrap the component.
+
+```
+import React from "react";
+
+const MyComponent = React.memo(function MyComponent({ value }) {
+  console.log("Rendered");
+  return <div>{value}</div>;
+});
+
+export default MyComponent;
+```
+
+### Shallow Comparison
+- React just checks if the references to props/state are different.
+- Example:
+```
+{ name: "Alice" } === { name: "Alice" }  // false (different objects)
+```
+- If you pass a new object or array each time, the component will still re-render.
 
 # State pitfall
 - A state pitfall is a common mistake or unexpected behavior that happens when managing state in React components. These issues often arise due to misunderstandings about how useState() works — especially with asynchronous updates, immutability, and re-renders.

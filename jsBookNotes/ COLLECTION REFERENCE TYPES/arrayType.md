@@ -129,7 +129,9 @@ arr.copyWithin(4, 0, 3); // [0, 1, 2, 3, 0, 1, 2, 7, 8, 9]
 - The toString() and valueOf() methods return the same value when called on an array. The result is a comma-separated string that contains the string equivalents of each value in the array
 
 let colors = ["red", "blue", "green"]; // creates an array with three strings
+
 colors.toString(); // red,blue,green
+
 colors.valueOf(); // red,blue,green
 
 ## join()
@@ -142,3 +144,7 @@ colors.join("||"); // red||green||blue
 
 ## note
 If an item in the array is null or undefined, it is represented by an empty string in the result of join(), toLocaleString(), toString(), and valueOf().
+
+
+
+## traverse

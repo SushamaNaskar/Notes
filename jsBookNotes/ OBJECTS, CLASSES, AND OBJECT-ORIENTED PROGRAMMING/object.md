@@ -64,23 +64,31 @@ const mergedObj = structuredClone({ ...obj1, ...obj2 });
 
 # Deep Copy vs. Shallow Copy in JavaScript
 When copying objects in JavaScript, there are two types of copies:
-Shallow Copy → Copies only the first level of properties. Nested objects still reference the original object. A shallow copy only clones the top-level properties, but nested objects still share the same reference
-Deep Copy → Recursively copies everything, so nested objects become independent copies. A deep copy clones all levels, creating completely independent objects.
+1. Shallow Copy → Copies only the first level of properties. Nested objects still reference the original object. A shallow copy only clones the top-level properties, but nested objects still share the same reference
+
+2. Deep Copy → Recursively copies everything, so nested objects become independent copies. A deep copy clones all levels, creating completely independent objects.
 
 # Object Identity and Equality
 
 // These are cases where === behaves as expected:
+
 console.log(true === 1); // false
+
 console.log({} === {}); // false
+
 console.log("2" === 2); // false
 
 // These have different representations in the JS engine and yet are treated as equal
 console.log(+0 === -0); // true
+
 console.log(+0 === 0); // true
+
 console.log(-0 === 0); // true
 
 // To determine NaN equivalence, the profoundly annoying isNaN() is required
+
 console.log(NaN === NaN); // false
+
 console.log(isNaN(NaN)); // true
 
 
@@ -139,6 +147,7 @@ name
 console.log(person); // { name: 'Matt' }
 
 # Computed Property Keys
+```
 
 const nameKey = 'name';
 const ageKey = 'age';
@@ -151,7 +160,7 @@ let person = {
 };
 
 console.log(person); // { name: 'Matt', age: 27, job: 'Software engineer' }
-
+```
 
 # Object Destructuring
 ```
@@ -190,7 +199,180 @@ console.log(job); // Software engineer
 # Object Iteration
 There are three native ways to list/traverse object properties:
 
-## Object.entries()
 ## Object.key()
-## for...in 
+Returns an array of the object’s own enumerable property names (just the keys, not values).
+
+```
+Syntax:
+
+Object.keys(obj)
+```
+
+```
+Example:
+
+const myObject = {
+  id: 101,
+  status: 'Active',
+  level: 'Admin'
+};
+
+console.log(Object.keys(myObject));
+```
+
+```
+Output:
+
+["id", "status", "level"]
+```
+
+```
+Iterating with Object.keys():
+
+Object.keys(myObject).forEach(key => {
+  console.log(`${key}: ${myObject[key]}`);
+});
+```
+
 ## Object.values() 
+Returns an array of the object’s own enumerable property values (just the values, no keys).
+
+```
+Syntax:
+
+Object.values(obj)
+
+```
+
+```
+Example:
+
+const myObject = {
+  id: 101,
+  status: 'Active',
+  level: 'Admin'
+};
+
+console.log(Object.values(myObject));
+
+```
+
+```
+Output:
+
+[101, "Active", "Admin"]
+```
+
+```
+Iterating with Object.values():
+
+Object.values(myObject).forEach(value => {
+  console.log(value);
+});
+
+101
+Active
+Admin
+```
+
+## Object.entries()
+- Returns an array of [key, value] pairs from an object.
+```
+Syntax:
+
+Object.entries(obj)
+
+```
+
+```
+Example:
+
+const myObject = {
+  id: 101,
+  status: 'Active',
+  level: 'Admin'
+};
+
+console.log(Object.entries(myObject));
+```
+
+```
+Output:
+
+[ ["id", 101], ["status", "Active"], ["level", "Admin"] ]
+```
+
+```
+Iterating with Object.keys():
+
+for (const [key, value] of Object.entries(myObject)) {
+  console.log(`${key}: ${value}`);
+}
+
+id: 101
+status: Active
+level: Admin
+
+```
+
+## for...in 
+```
+const myObject = {
+  id: 101,
+  status: 'Active',
+  level: 'Admin'
+};
+
+for (const key in myObject) {
+  console.log(`${key}: ${myObject[key]}`);
+}
+
+
+output:
+id: 101
+status: Active
+level: Admin
+
+```
+
+# Key differences between for...in, for...of, and forEach
+
+## for...in
+
+Iterates over keys (property names) of an object.
+
+You still need to use myObject[key] to access the value.
+
+Includes inherited enumerable properties too (unless you filter with hasOwnProperty).
+
+## forEach
+
+Array method → also needs Object.entries(myObject) or Object.keys(myObject).
+
+Functional style, no break/continue.
+
+## for...of
+
+Iterates over iterable objects (like arrays, strings, maps, sets).
+
+Doesn’t work directly on plain objects → that’s why we wrap with Object.entries(myObject) or Object.keys(myObject).
+
+Gives you entries (key/value pairs) if you use Object.entries.
+
+# Object.fromEntries
+-  builds an object from a collection of key-value array pairs. This method performs the opposite operation of Object.
+entries(). 
+
+```
+const obj = {
+foo: 'bar',
+baz: 'qux'
+};
+const objEntries = Object.entries(obj);
+
+console.log(objEntries);
+// [["foo", "bar"], ["baz", "qux"]]
+
+console.log(Object.fromEntries(objEntries));
+// { foo: "bar", baz: "qux" }
+```

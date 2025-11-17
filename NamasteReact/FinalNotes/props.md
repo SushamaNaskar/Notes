@@ -33,6 +33,7 @@ Remember that props are readonly. They should not be modified in any way, If you
 # What we shouold not update props in react?
 Props are meant to be passed from parent to child and treated as immutable inside the child component. React’s philosophy is "one-way data flow", meaning data flows from parent to child, not the other way around.
 React decides when to re-render a component based on state and props. If you modify props directly, React won't detect the change — meaning the component may not re-render as you expect.
+
 # What is prop drilling ?
 - prop drilling  refers to the process of  passing down props through multiple layers of nested components.
 - This happens when a piece of data needs to be transferred from a higher-level component to a deeply nested child component, and it must pass through several intermediary components in between.

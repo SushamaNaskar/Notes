@@ -1,3 +1,9 @@
+# Callback functions
+- A callback function is a function that is passed as an argument to another function and is executed after some operation has been completed. This is a common pattern in JavaScript for handling asynchronous operations, such as reading files, making network requests, or responding to user events without blocking the main thread.
+
+Callbacks make sure that a function is not going to run before a task is completed but will run right after the task has completed. It helps us develop asynchronous JavaScript code and keeps us safe from problems and errors.
+<!-- They enable asynchronous programming, allowing the code to perform tasks without blocking the main thread. -->
+
 # Callback hell
 - Callback hell refers to the situation where callbacks are nested within callbacks, leading to code that is difficult to read, understand, and maintain. This often occurs in asynchronous programming when dealing with operations like file handling, database queries, network requests, and more. It's often referred as the "Pyramid of Doom".
 
