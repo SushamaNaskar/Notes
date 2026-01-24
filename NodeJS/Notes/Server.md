@@ -1,6 +1,5 @@
 # Server
-- A server is a computer or system that provides data, services, resources, or
-programs to other computers, known as clients, over a network.
+- A server is a computer or system that provides data, services, resources, or programs to other computers, known as clients, over a network.
 
 A server is essentially a remote computer. You can think of it as a computer whose CPU works remotely.
 
@@ -124,3 +123,6 @@ VPNs let you connect to remote computers inside a private company network.
     </tr>
 </tbody>
 </table>
+
+# What is IP address?
+- An IP address, or Internet Protocol address, is a unique number that identifies every device connected to the internet.

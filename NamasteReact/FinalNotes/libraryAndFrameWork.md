@@ -1,5 +1,5 @@
 # What is library?
-- Library is a collections of prewritten code snippets which can be used and reused to perform certain tasks. A particular Javascript library code can be plugged into applicatoin code, which leads to faster development and fewer vulnerabilities to have errors.
+- Library is a collection of prewritten code snippets which can be used and reused to perform certain tasks. A particular Javascript library code can be plugged into applicatoin code, which leads to faster development and fewer vulnerabilities to have errors.
 ex: React and Jquery
 
 # What is framework?

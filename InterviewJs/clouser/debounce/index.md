@@ -37,6 +37,9 @@ debouncedPrint(3);
 
 ## Search input
 - only call an api, if the difference between two keypress event is greater than 300 ms
+- return will run
+1. When value or delay changes (before running a new effect)
+2. When the component unmounts
 
 ```
 import React, {useState,useEffect} from 'react';
@@ -66,6 +69,51 @@ export default function Component() {
   );
 }
 ```
+
+## Button Clicks
+- The callback (handleClick) fires only when the user stops clicking for 1 second.
+- Only use useRef when building a debounced function callback, not a debounced value.
+
+```
+import { useRef, useCallback } from "react";
+
+export function useDebouncedCallback(callback, delay = 300) {
+  const timerRef = useRef(null);
+
+  const debouncedFn = useCallback(
+    (...args) => {
+      // Clear previous timer
+      if (timerRef.current) {
+        clearTimeout(timerRef.current);
+      }
+
+      // Start new timer
+      timerRef.current = setTimeout(() => {
+        callback(...args);
+      }, delay);
+    },
+    [callback, delay]
+  );
+
+  return debouncedFn;
+}
+
+export default function DebouncedButton() {
+  const handleClick = useDebouncedCallback(() => {
+    console.log("Button clicked (debounced)!");
+  }, 1000); // waits 1 second after last click
+
+  return (
+    <div>
+      <button onClick={handleClick}>
+        Click Me (Debounced)
+      </button>
+    </div>
+  );
+}
+
+```
+
 
 ## Window Resize Event
 - The UI (and any heavy logic) only updates after the user stops resizing for 300ms.
@@ -122,49 +170,10 @@ export default function App() {
 ```
 
 
-# Button Clicks
-- The callback (handleClick) fires only when the user stops clicking for 1 second.
-
-```
-import { useRef } from "react";
-
-export function useDebounceCallback(callback, delay = 300) {
-  const timer = useRef(null);
-
-  function debouncedFn(...args) {
-    if (timer.current) clearTimeout(timer.current);
-
-    timer.current = setTimeout(() => {
-      callback(...args);
-    }, delay);
-  }
-
-  return debouncedFn;
-}
-
-
-export default function App() {
-  const handleClick = () => {
-    console.log("Button clicked!");
-  };
-
-  // Create a debounced click handler
-  const debouncedClick = useDebounceCallback(handleClick, 1000);
-
-  return (
-    <div>
-      <h2>Debounced Button Click</h2>
-      <button onClick={debouncedClick}>
-        Click Me (Debounced)
-      </button>
-    </div>
-  );
-}
-
-```
 
 
 ## Debounced Scroll Event
+
 - Use debounce when you want to run a scroll handler after the user stops scrolling.
 
 ```
@@ -206,3 +215,7 @@ export default function App() {
   );
 }
 ```
+
+
+# notes
+- Only use useRef when building a debounced function callback, not a debounced value.

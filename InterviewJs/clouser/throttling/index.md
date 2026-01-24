@@ -100,3 +100,105 @@ export default function ThrottledScroll() {
   );
 }
 ```
+
+
+
+Throttle is very similar, and the idea of keeping the internal tracker and a function that returns a function is the same. The difference is that throttle guarantees to call the callback function regularly, every wait interval, whereas debounce will constantly reset the timer and wait until the end.
+
+
+The difference will be obvious if we use not an async search example, but an editing field with auto-save functionality: if a user types something in the field, we want to send requests to the backend to save whatever they type “on the fly”, without them pressing the “save” button explicitly. If a user is writing a poem in a field like that really really fast, the “debounced” onChange callback will be triggered only once. And if something breaks while typing, the entire poem will be lost. “Throttled” callback will be triggered periodically, the poem will be regularly saved, and if a disaster occurs, only the last milliseconds of the poem will be lost. Much safer approach.
+
+
+
+
+/*
+
+async function test() {
+  console.log("X");
+  await Promise.resolve("Y");
+  console.log("Y");
+  setTimeout(() => console.log("Z"), 0);
+}
+console.log("A");
+setTimeout(() => console.log("B"), 0);
+test();
+Promise.resolve().then(() => console.log("C"));
+console.log("D");
+setTimeout(async () => {
+  console.log("E");
+  await 0;
+  console.log("F");
+});
+
+
+
+==========================================================================
+for (let i = 0; i < 3; i++) {
+  setTimeout(() => console.log(i), 0);
+  Promise.resolve().then(() => console.log("P" + i));
+}
+
+i=0
+0
+"P0"
+
+i=1
+1
+"P1"
+
+
+i=2
+
+
+
+
+=========================================================================================
+const user = {
+  name: "Alice",
+  greet() {
+    console.log("Hi,", this.name);
+    function inner() {
+      console.log("Hello,", this.name);
+    }
+    inner();
+  }
+};
+
+user.greet();
+===========================================================================================
+============================================================================================
+Write a program in javascript to flat the array given
+Input: [1, 2, [3, 4], 5, [6, [7, 8]]]
+Expected Output: [1, 2, 3, 4, 5, 6, 7, 8]
+============================================================================================
+
+*/
+
+
+function throttling(callback,delay){
+    let flag=false;
+    const context=this;
+    
+    return function(args){
+        
+        if(flag){
+            callbakck(...args)
+        }
+        
+        if(!flag){
+            let timer=setIntervel(()=>{
+                
+                flag=true;
+            },delay)
+        }
+        
+        
+    }
+}
+
+
+
+
+
+
+03340071212   9:30 - 12:30

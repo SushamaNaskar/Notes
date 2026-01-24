@@ -1,6 +1,6 @@
 # Node.js
 
-Node.js is a cross-platform, open-source JavaScript runtime environment that can run on Windows, Linux, Unix, macOS, and more. Node.js runs on the V8 JavaScript engine, and executes JavaScript code outside a web browser.
+- Node.js is a cross-platform, open-source JavaScript runtime environment that can run on Windows, Linux, Unix, macOS, and more. Node.js runs on the V8 JavaScript engine, and executes JavaScript code outside a web browser.
 
 - Node.js is a JavaScript runtime, built on Chrome's V8 JavaScript engine.
 - It is maintained by the OpenJS Foundation.
@@ -79,3 +79,18 @@ This means that while JavaScript is traditionally associated with the web and br
 A JavaScript runtime environment = Engine + APIs + Event Loop + Tools
 → Everything required to run JavaScript code.
 
+# Node Repl (Read Evaluate Print loop)
+- when we write node and press enter, we enter a repl, where we can write js code
+- This is all running in a Node runtime environment.
+- It is very similar to console in browser
+- browser is using v8 and node is also using v8
+- now write var i=10 -> enter -> var j=20 -> enter -> i+j  it will print 30 in the next line
+
+```
+> var i=10;
+undefined
+> var j=20;
+undefined
+> i+j
+30
+```

@@ -13,6 +13,9 @@ An IP address is a unique string of numbers (or numbers and letters, in some cas
 
 It acts like a home address for your device on the internet or a local network—helping data find its way to and from the right place.
 
+(What is IP address?
+- An IP address, or Internet Protocol address, is a unique number that identifies every device connected to the internet.)
+
 
 # you want to order pizza from Domino's online using your phone
 
