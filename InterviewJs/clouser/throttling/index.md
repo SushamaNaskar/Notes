@@ -111,94 +111,81 @@ The difference will be obvious if we use not an async search example, but an edi
 
 
 
-/*
+Build a useThrottleValue hook
 
-async function test() {
-  console.log("X");
-  await Promise.resolve("Y");
-  console.log("Y");
-  setTimeout(() => console.log("Z"), 0);
-}
-console.log("A");
-setTimeout(() => console.log("B"), 0);
-test();
-Promise.resolve().then(() => console.log("C"));
-console.log("D");
-setTimeout(async () => {
-  console.log("E");
-  await 0;
-  console.log("F");
-});
+🔥 Compare throttle vs debounce with diagrams
+
+🔥 Explain leading vs trailing throttling
+
+🔥 Show React 18 + throttling pitfalls
 
 
+# window scroll
 
-==========================================================================
-for (let i = 0; i < 3; i++) {
-  setTimeout(() => console.log(i), 0);
-  Promise.resolve().then(() => console.log("P" + i));
-}
+1. The first call executes immediately, starting the throttle window.
+2.Any calls within the delay are deferred and replaced so only the last one survives.
+– For example, with a 300 ms delay and events at 100 ms, 150 ms, and 250 ms, the else logic keeps only the 250 ms call.
+3. When the delay ends, the last deferred call executes once (trailing).
+4. Any call after the delay starts a new cycle and runs immediately via the if.
+– So an event at 350 ms runs immediately after the 250 ms call has already executed at 300 ms.
 
-i=0
-0
-"P0"
+## Event Time,Block Triggered,Action Taken
+0ms,if (Leading),Executes Immediately.
+100ms,else (Trailing),Schedules call for 300ms.
+250ms,else (Trailing),Reschedules call for 300ms (Last one wins).
+300ms,setTimeout,Executes 250ms event. Updates lastExecuted.
+350ms,else (Trailing),Schedules next call for 600ms (since 300ms was the last finish).
 
-i=1
-1
-"P1"
+```
+import React, {useEffect, useRef, useCallback } from "react";
 
+const useThrottle = (func, delay) => {
+  const timerRef = useRef(null);
+  const lastRunRef = useRef(0);
+  const funcRef = useRef(func);
 
-i=2
+  useEffect(() => {
+    funcRef.current = func;
+  }, [func]);
 
+  useEffect(() => {
+    return () => {
+      if (timerRef.current) clearTimeout(timerRef.current);
+    };
+  }, []);
 
+  return useCallback((...args) => {
+    const now = Date.now();
+    const elapsed = now - lastRunRef.current;
 
-
-=========================================================================================
-const user = {
-  name: "Alice",
-  greet() {
-    console.log("Hi,", this.name);
-    function inner() {
-      console.log("Hello,", this.name);
+    if (elapsed >= delay) {
+      if (timerRef.current) clearTimeout(timerRef.current);
+      lastRunRef.current = now;
+      funcRef.current(...args);
+    } else {
+      if (timerRef.current) clearTimeout(timerRef.current);
+      timerRef.current = setTimeout(() => {
+        lastRunRef.current = Date.now();
+        funcRef.current(...args);
+      }, delay - elapsed);
     }
-    inner();
-  }
+  }, [delay]);
 };
 
-user.greet();
-===========================================================================================
-============================================================================================
-Write a program in javascript to flat the array given
-Input: [1, 2, [3, 4], 5, [6, [7, 8]]]
-Expected Output: [1, 2, 3, 4, 5, 6, 7, 8]
-============================================================================================
-
-*/
+export default useThrottle;
 
 
-function throttling(callback,delay){
-    let flag=false;
-    const context=this;
-    
-    return function(args){
-        
-        if(flag){
-            callbakck(...args)
-        }
-        
-        if(!flag){
-            let timer=setIntervel(()=>{
-                
-                flag=true;
-            },delay)
-        }
-        
-        
-    }
+function WindowScroll() {
+  const handleScroll = useThrottle(() => {
+    console.log("Scroll Y:", window.scrollY);
+  }, 300);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return <div style={{ height: "200vh" }}>Scroll me</div>;
+
 }
-
-
-
-
-
-
-03340071212   9:30 - 12:30
+  ```
