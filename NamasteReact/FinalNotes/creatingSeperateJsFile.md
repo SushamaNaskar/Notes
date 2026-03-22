@@ -34,7 +34,7 @@
     </body>
 
 
-# What is type="module?
+# What is type="module"?
 The type="module" attribute in HTML is used to specify that a script should be treated as an ES6 module.
 
 This has several important implications:

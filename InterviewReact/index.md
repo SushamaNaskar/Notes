@@ -4,18 +4,20 @@
 3. Stopwatch
 4. throttle
 
-5. Generate Table
-6. Grid Lights
-7. Tic-tac-toe
+5. Grid Lights
+6. Tic-tac-toe
+7. Dice Roller
 
-8. Dice Roller
-
+8. Generate Table
 9. Data Table
 10. Data Table II
-11. Todo List
-12. Transfer List
-13. Users Database
-14. Job Board
+11. Data Table III
+12. Data Table IV
+13. Todo List
+14. Transfer List
+15. Transfer List II
+16. Users Database
+17. Job Board
 
 ---------------------------
 
@@ -35,10 +37,12 @@
 25. Contact Form
 26. Signup Form
 27. Flight Booker
+Nested Checkboxes
+Auth Code Input
 
 
 28. Temperature Converter
 29. Mortgage Calculator
 
 30. Modal Dialog
-31. Image Carousel
+36. Image Carousel

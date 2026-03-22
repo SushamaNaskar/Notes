@@ -74,7 +74,7 @@ Best when many components at different levels need access or updates.
 
 Keeps code cleaner and more scalable.
 
-4. Colocate state smartly
+4. locate state smartly
 Keep the state as close to where it's needed as possible.
 
 Avoid unnecessary lifting.

@@ -6,7 +6,7 @@
 6. React Package set up
 7. Node js
 8. Bundlers
-<!-- 9. Creating seperate js file -->
+9. Creating seperate js file
 10. JSX
 11. Components
 12. State
@@ -22,6 +22,7 @@
 <!-- - import and export -->
 - key
 - Virtual DOM
+- Data visualization
 <!-- - How react works behind the sceen
 - MonoliticVsMicroServices
 - config driven UI

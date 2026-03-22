@@ -1,6 +1,6 @@
 # Debouncing
 
-- Debouncing delays function execution util after a period of inactivity.
+- Debouncing delays function execution until after a period of inactivity.
 - It consolidate multiple rapid functions calls into a single call by cancelling all other previous calls.
 
 # useCase

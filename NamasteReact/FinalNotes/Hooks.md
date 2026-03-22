@@ -42,7 +42,7 @@ render.
 
 1. if no depencency array=> will run both after the initial render and after every subsequent render
 2. empty depencency array [] => the effect will run only after the initial render, and it won't run again on subsequent re-renders.
-3. if dedendecies added => , the callback function will be executed once during the initial render of the component and also on re-renders if there is a change in the condition
+3. if dedendecies added => the callback function will be executed once during the initial render of the component and also on re-renders if there is a change in the condition
 
 # useMemo
 - cache the result of calculation between re-renders

@@ -69,3 +69,135 @@ const newComponent=withHigherOrderComponent(component);
 # ```{TitleComponent} vs <TitleComponent/>```
 - Use {TitleComponent} when TitleComponent is a variable holding a React component.
 - Use ```{<TitleComponent/>}``` as the standard way to render a React component in JSX.
+
+# controlled and uncontrolled component
+- A component is controlled when its important behavior is driven by props from the parent, 
+- uncontrolled when it manages that behavior with its own internal state.
+
+There are two interpretation in react docs
+1. In React form inputs, the difference is about where the input value is stored and controlled.
+
+Controlled → value is managed by React using value and onChange.
+Uncontrolled → value is managed by the DOM and accessed using ref.
+
+2. State ownership between components
+local state → uncontrolled
+props-driven → controlled
+
+## Controlled Input (value + onChange)
+- Here React state controls the input value.
+
+```
+User types → onChange → React state updates → value prop updates input
+```
+
+```
+import React, { useState } from "react";
+
+function ControlledExample() {
+  const [name, setName] = useState("");
+
+  const handleChange = (e) => {
+    setName(e.target.value);
+  };
+
+  return (
+    <div>
+      <h3>Controlled Input</h3>
+
+      <input
+        type="text"
+        value={name}
+        onChange={handleChange}
+      />
+
+      <p>You typed: {name}</p>
+    </div>
+  );
+}
+
+export default ControlledExample;
+```
+## What happens step-by-step
+
+User types "A"
+
+onChange fires
+
+setName("A") updates state
+
+React re-renders
+
+value={name} updates the input
+
+So the source of truth = React state.
+
+## Why controlled inputs are powerful
+
+You can easily:
+
+validate input
+
+disable button
+
+show error messages
+
+modify user input
+
+sync multiple inputs
+
+## Uncontrolled Input (ref)
+- Here the DOM stores the value, not React.
+- React reads it only when needed using ref.
+- flow:
+```
+User types → value stored in DOM → React reads via ref
+```
+- Example:
+```
+import React, { useRef } from "react";
+
+function UncontrolledExample() {
+  const inputRef = useRef();
+
+  const handleChange = () => {
+    alert(inputRef.current.value);
+  };
+
+  return (
+    <div>
+      <h3>Uncontrolled Input</h3>
+
+      <input type="text" ref={inputRef} onChange={handleChange}/>
+
+      <button onClick={handleSubmit}>
+        Submit
+      </button>
+    </div>
+  );
+}
+
+export default UncontrolledExample;
+```
+
+## What happens
+
+User types "Hello"
+
+Value is stored inside the DOM
+
+When button clicked
+
+React reads value using
+
+# when each is used
+| Situation               | Use                     |
+| ----------------------- | ----------------------- |
+| Complex forms           | Controlled              |
+| Validation needed       | Controlled              |
+| Small quick form        | Uncontrolled            |
+| Performance heavy forms | Sometimes uncontrolled  |
+| React Hook Form         | Uncontrolled internally |
+
+# Why are file inputs always uncontrolled in React?
+- For security reasons, browsers do not allow JavaScript to set the value of file inputs, so React cannot control them. They must be accessed via refs.

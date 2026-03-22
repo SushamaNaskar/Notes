@@ -10,8 +10,8 @@
 
 # state variable
 - A state variable is a variable that holds state data for a React component.
-- In class-based components, state variables are properties of the state object.
-- In functional components, state variables are created using the useState hook.
+- In class-based components: state variables are properties of the state object.
+- In functional components: state variables are created using the useState hook.
 
 # Why do we need State variable?
 <!-- - to use state management that automatically refreshes the UI when data changes.  -->
@@ -82,10 +82,6 @@ const [count, setCount] = useState(0);
 - Lifting state up refers to the practice of moving the state from a lower-level (child) component to a higher-level (parent or common ancestor) component in the component tree .
 - This pattern is  useful in larger React applications where multiple components need access to the same data or where the state needs to be synchronized across different parts of the application.
 
-
-# controlled and uncontrolled component
-- controlled components refer to the components where the state and behaviors are controlled by Parent components 
-- Uncontrolled components are the ones having control of their own state and manage the behaviors themselves.
 
 # Pure Component
 - In React, a Pure Component is a component that only re-renders when its props or state actually change — it skips re-rendering if the data is the same.

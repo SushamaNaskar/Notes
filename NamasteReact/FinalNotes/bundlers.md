@@ -18,7 +18,7 @@
 Browserslist is a tool that specifies which browsers should be supported/compatible in your frontend app.
 
 In package.json file do:
-"browserslist:["last two versions]
+"browserslist":[last two versions]
 
 # dist folder
 when we run parcel, it generates a dev/prod build of your application and puts it in dist folder.

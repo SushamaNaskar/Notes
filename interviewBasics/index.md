@@ -1,0 +1,6 @@
+# Tell us why you are the right fit
+I believe I am a strong fit for this role because I bring not only technical skills but also the right mindset toward building quality software. I approach problems with an open mind and always try to understand the bigger picture before jumping into solutions.
+
+When working on a task, I focus on finding the best possible solution without compromising code quality, maintainability, or user experience. I believe good code is not just about making something work but about making it clean, reliable, and easy for others to build on.
+I also take responsibility for my work seriously. If something is assigned to me, I make sure to see it through with care and attention to detail. I enjoy learning, improving my skills, and collaborating with others to build better products.
+Overall, I bring a combination of technical ability, ownership, and a thoughtful approach to problem-solving, which I believe would allow me to contribute positively to the team and the product.

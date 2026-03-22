@@ -11,6 +11,7 @@ const ThemeProvider=({children})=>{
     const changeTheme=()=>{
         setTheme((prev)=>prev==='light'?'dark':'light);
     }
+    
     return(
         <ThemeContext.Provider value={{theme, changeTheme}}>
          {children}

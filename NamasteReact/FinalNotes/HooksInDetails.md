@@ -4,10 +4,8 @@
 - Only Call Hooks from React Functions : Don’t call Hooks from regular JavaScript functions. Instead, you can:
 
 ✅ Call Hooks from React function components.
-✅ Call Hooks from custom Hooks (we’ll learn about them on the next page).
+✅ Call Hooks from custom Hooks.
 By following this rule, you ensure that all stateful logic in a component is clearly visible from its source code.
-
-- We released an ESLint plugin called eslint-plugin-react-hooks that enforces these two rules. 
 
 # useState()
 -  Normally, variables “disappear” when the function exits but state variables are preserved by React.
