@@ -23,4 +23,4 @@ In a multi-function program, many data items are placed as global so that they m
 
 OOP treats data as a critical element in the program development and does not allow it to flow freely around the system. It ties data more closly to the functions that operate on it and protests it from accidental modification from outside functions.
 
-OOP allows decompositio of a problem into a number of entities called objects and then builds data and functions around these objects.
+OOP allows decomposition of a problem into a number of entities called objects and then builds data and functions around these objects.

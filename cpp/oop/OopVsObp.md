@@ -6,3 +6,6 @@ supports
 - operator overloading
 
 Languages that support programming with objects are said to be object-based programming languages. They do not support inheritance and dynamin binding.
+
+# oops
+OOP is a programming paradigm that relies on the concept of classes and objects.

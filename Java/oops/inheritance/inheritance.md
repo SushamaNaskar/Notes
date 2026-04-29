@@ -1,7 +1,6 @@
 # Inheritance
 - Inheritance provides a way to create a new class from an existing class. 
-- The new class is a specialized version of the existing class such that it inherits all the non-private fields (variables) and methods of the existing class. 
-- The existing class is used as a starting point or as a base to create the new class.
+<!-- - The new class inherits all the non-private fields (variables) and methods of the existing class.  -->
 
 # Advantages of Inheritance
 

@@ -1,7 +1,11 @@
 # class
-- A class is a user-defined blueprint or template used to create objects.
-- It defines the properties (variables) and behaviors (methods) that the objects created from it will have.
-- Classes behave like custom data types, similar to built-in types like int, double, or String.
+- A class is a user-defined data type
+- It acts as a blueprint/template for objects
+- It contains:
+ * Variables (state/properties)
+ * Methods (behavior)
+- Memory is not allocated when a class is created
+- Memory is allocated when an object is created
 
 
 ```
@@ -27,6 +31,8 @@ public class Main {
 
 }
 ```
+
+
 
 # Object
 Objects are variables of the type class.
