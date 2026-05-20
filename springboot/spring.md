@@ -60,3 +60,7 @@ Step-by-step:
 5. Injects dependencies
 6. Starts server (Tomcat)
 7. App ready 🚀
+
+
+# "@SpringBootApplication
+ is the main annotation in Spring Boot applications. It is a combination of @Configuration, @EnableAutoConfiguration, and @ComponentScan. It helps Spring Boot automatically configure the application, scan components, and manage beans, reducing manual configuration."
