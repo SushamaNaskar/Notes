@@ -28,14 +28,14 @@ We will not bother about how car engine starting internally
 
     Same method name, but different parameters (type, number, or order)
 
-    ✔ Decided at compile time
+    ✔ Decided (which funtion to call) at compile time
 
   * 2️⃣ Runtime Polymorphism (achieved through method overriding using inheritance.)
  
     Same method name + same parameters, but different implementation in child class
 
     ✔ Achieved using inheritance
-    ✔ Decided at runtime (dynamic binding)
+    ✔ Decided (which funtion to call) at runtime (dynamic binding)
 
 
 # Inheritance

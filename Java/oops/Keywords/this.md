@@ -37,7 +37,7 @@ class Student {
     }
 }
 ```
-## Call another constructor (constructor chaining)
+## Call another constructor in the SAME class (constructor chaining)
 - this() → calls constructor in the SAME class
 
 ```
