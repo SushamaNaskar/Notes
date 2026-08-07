@@ -1,5 +1,4 @@
 # MVC Architecture (Model View Controller)
-
 MVC is a design pattern used to organize application code into 3 separate parts:
 
 - Model → Handles data and business logic (Database interaction/ Persistence Layer)
@@ -9,6 +8,12 @@ MVC is a design pattern used to organize application code into 3 separate parts:
 2. Presentation Layer : Contains: Controller \
 3. Persistence Layer : Contains:  Repository \
 4. Service Layer : Contains: Service classes
+
+# Why MVC is Important
+- Separation of concerns
+- Clean architecture
+- Reusable code
+- Easier teamwork
 
 # MVC Flow
 ```
@@ -38,11 +43,57 @@ JSON Response
 Front Controller of Spring MVC
 
 - Responsibilities:
-
  * Receives all incoming requests
  * Finds correct controller
  * Manages request flow
  * Returns response to client
+
+# Controller
+
+The Controller:
+
+- Receives HTTP requests
+- Calls service methods
+- Returns response
+
+It acts like a middleman between user and business logic.
+
+## Example
+```
+@RestController
+@RequestMapping("/employees")
+public class EmployeeController {
+
+    @Autowired
+    private EmployeeService service;
+
+    @GetMapping
+    public List<Employee> getEmployees() {
+        return service.getEmployees();
+    }
+}
+```
+
+# View
+The View is what the user sees.
+
+## Examples:
+- HTML page
+- JSON response
+- JSP
+- Thymeleaf template
+- React frontend response
+
+In REST APIs:
+- JSON itself acts as the View.
+
+## Example
+```
+{
+   "id": 1,
+   "name": "Rahul"
+}
+```
 
 # Model
 
@@ -98,54 +149,6 @@ public class EmployeeService {
 
     public List<Employee> getEmployees() {
         return repository.findAll();
-    }
-}
-```
-
-# 2. View
-
-The View is what the user sees.
-
-## Examples:
-- HTML page
-- JSON response
-- JSP
-- Thymeleaf template
-- React frontend response
-
-In REST APIs:
-- JSON itself acts as the View.
-
-## Example
-```
-{
-   "id": 1,
-   "name": "Rahul"
-}
-```
-
-# 3. Controller
-
-The Controller:
-
-- Receives HTTP requests
-- Calls service methods
-- Returns response
-
-It acts like a middleman between user and business logic.
-
-## Example
-```
-@RestController
-@RequestMapping("/employees")
-public class EmployeeController {
-
-    @Autowired
-    private EmployeeService service;
-
-    @GetMapping
-    public List<Employee> getEmployees() {
-        return service.getEmployees();
     }
 }
 ```
@@ -251,9 +254,3 @@ Controller
 ]
 ```
 
-# Why MVC is Important
-
-- Separation of concerns
-- Clean architecture
-- Reusable code
-- Easier teamwork

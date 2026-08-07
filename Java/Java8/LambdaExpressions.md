@@ -1,6 +1,6 @@
 # Lambda Expressions
 - A lambda expression is an anonymous function, that can be passed as an argument.
-- Lambda works only with Functional Interfaces
+- Lambda works only with Functional Interfaces.
 - Java is an object-oriented language. 
 - By introducing lambdas in Java 8, the authors of Java tried to add elements of functional programming in Java.
 -  We can pass it to other methods as parameters, therefore, using the power of functional programming in Java.
@@ -47,4 +47,5 @@ list.forEach(n -> System.out.println(n));
 # Why to use Lambda expressions?
 - To write functional programming in java
 - To enable parallel processing
-- To write more readable, maintainable and concise code
+- To write more readable code
+<!-- - To write more readable, maintainable and concise code -->

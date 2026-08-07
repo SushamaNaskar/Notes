@@ -27,71 +27,6 @@ class Dog extends Animal {
 - Cannot override final, static, or private methods
 
 
-## 🔥 Runtime Behavior (VERY IMPORTANT)
-
-```
-class A {
-    static void staticMethod() {
-        System.out.println("Static A");
-    }
-
-    void instanceMethod() {
-        System.out.println("Instance A");
-    }
-}
-
-class B extends A {
-    static void staticMethod() {
-        System.out.println("Static B");
-    }
-
-    void instanceMethod() {
-        System.out.println("Instance B");
-    }
-}
-
-
-```
-
-```
-A obj = new B();
-
-obj.staticMethod();
-obj.instanceMethod();
-```
-
-👉 Output:
-
-```
-Static A
-Instance B
-```
-
-🧠 Why? \
-Because of: \
- 👉 Runtime Polymorphism (Dynamic Method Dispatch) \
- 👉 Static methods are resolved at compile time using the reference type,  \
- 👉 while instance methods are resolved at runtime using the actual object type.
-
-🧠 Memory Trick
-
-👉 Static = Structure (class-level) \
-👉 Instance = Behavior (object-level)
-
-| Feature         | Static Method        | Non-Static Method (Instance Method) |
-| --------------- | -------------------- | ----------------------------------- |
-| Resolution Time | Compile-time         | Runtime                             |
-| Based On        | **Reference Type**   | **Object Type**                     |
-| Polymorphism    | ❌ No (No overriding) | ✔ Yes (Method overriding)           |
-| Concept Used    | Method Hiding        | Dynamic Method Dispatch             |
-| Memory Binding  | Early Binding        | Late Binding                        |
-| Can Override?   | ❌ No                 | ✔ Yes                               |
-| Keyword Used    | `static`             | No keyword needed                   |
-
-
-
-
-
 # Covariant Return Type
 - A method in the child class can return a subclass type of the parent method’s return type.
 - For example:
@@ -102,6 +37,8 @@ Because of: \
 
 
 ## valid Covariant Return Type
+
+### Number and Integer
 ```
 class A {
     Number getValue() {
@@ -116,7 +53,22 @@ class B extends A {
 }
 ```
 
-## valid object return type
+### Object and String
+```
+class A {
+    Object getData() {
+        return "Hello";
+    }
+}
+
+class B extends A {
+    String getData() {  // ✔ valid
+        return "Hi";
+    }
+}
+```
+
+### valid object return type
 ```
 class Animal {}
 
@@ -169,27 +121,17 @@ class B extends A {
 }
 ```
 
-## String vs Object
-```
-class A {
-    Object getData() {
-        return "Hello";
-    }
-}
-
-class B extends A {
-    String getData() {  // ✔ valid
-        return "Hi";
-    }
-}
-```
-
 # Access Level Order (Important)
 From most restrictive → least restrictive:
 ```
-private < default < protected < public
+default < protected < public
+
+default   → default, protected, public
+protected → protected, public
+public    → public
 ```
 👉 Child method must go same or more accessible, never less.
+
 
 # allowed or valid access level order
 ## 1. Protected → Public
@@ -243,6 +185,12 @@ class B extends A {
 - static method follows method hiding
 
 ## Private Method Trap (VERY IMPORTANT)
+If the parent method is private:
+• Private methods are NOT inherited.
+• Since the child doesn't inherit the method, it cannot override it.
+• If the child declares a method with the same name and parameters, it is a completely new method, not an overridden method.
+• The child method can have any access modifier (private, default, protected, or public) because overriding rules do not apply.
+
 ```
 class A {
     private void show() {}
@@ -262,6 +210,8 @@ Valid
 - So this is not overriding, it's a new method
 
 ## Final Trick
+final methods cannot be overridden at all -> Compilation error
+
 ```
 class A {
     public final void show() {}
@@ -277,19 +227,89 @@ Compilation error
 
 👉 final methods cannot be overridden at all
 
-# static Method → ❌ Not Overridden (Hidden)
+## Static
+- Static method follows method hiding
+- You cannot override static with instance or instance with static.
+
+| Parent   | Child    | Allowed? | What happens?      |
+| -------- | -------- | -------- | ------------------ |
+| Static   | Static   | ✅ Yes    | Method hiding      |
+| Static   | Instance | ❌ No     | Compile-time error |
+| Instance | Static   | ❌ No     | Compile-time error |
+
+
+### You cannot override static with instance
 ```
 class A {
     static void show() {
-        System.out.println("A");
+        System.out.println("A static");
     }
 }
 
 class B extends A {
-    static void show() {
-        System.out.println("B");
+    void show() {
+        System.out.println("B instance");
     }
 }
+```
+
+## ✅ Output
+```
+Compilation Error
+```
+
+### You can override an instance method with a static method
+```
+class Parent {
+    void show() {
+        System.out.println("Parent");
+    }
+}
+
+class Child extends Parent {
+    static void show() {   // Compile-time error
+        System.out.println("Child");
+    }
+}
+```
+
+## static Method → ❌ Not Overridden (Hidden)
+```
+class A {
+    static void staticMethod() {
+        System.out.println("Static A");
+    }
+
+    void instanceMethod() {
+        System.out.println("Instance A");
+    }
+}
+
+class B extends A {
+    static void staticMethod() {
+        System.out.println("Static B");
+    }
+
+    void instanceMethod() {
+        System.out.println("Instance B");
+    }
+}
+
+
+```
+
+```
+A obj = new B();
+
+obj.staticMethod();
+obj.instanceMethod();
+```
+
+👉 Output:
+
+```
+Static A
+Instance B
 ```
 
 ⚠️ Important:
@@ -297,9 +317,28 @@ class B extends A {
 ✔ Compiles
 ❌ Not overriding → method hiding
 
-🧠 Why?
-- Static methods are resolved at compile time
-- Based on reference type, not object
+🧠 Why? \
+Because of: \
+ 👉 Runtime Polymorphism (Dynamic Method Dispatch) \
+ 👉 Static methods are resolved at compile time using the reference type,  \
+ 👉 while instance methods are resolved at runtime using the actual object type.
+
+🧠 Memory Trick
+
+👉 Static = Structure (class-level) \
+👉 Instance = Behavior (object-level)
+
+| Feature         | Static Method        | Non-Static Method (Instance Method) |
+| --------------- | -------------------- | ----------------------------------- |
+| Resolution Time | Compile-time         | Runtime                             |
+| Based On        | **Reference Type**   | **Object Type**                     |
+| Polymorphism    | ❌ No (No overriding) | ✔ Yes (Method overriding)           |
+| Concept Used    | Method Hiding        | Dynamic Method Dispatch             |
+| Memory Binding  | Early Binding        | Late Binding                        |
+| Can Override?   | ❌ No                 | ✔ Yes                               |
+| Keyword Used    | `static`             | No keyword needed                   |
+
+
 
 
 # Method Overriding VS Method Hiding
@@ -309,3 +348,5 @@ Method Hiding = compile-time resolution (based on reference)
 
 - Method overriding occurs when a subclass provides a new implementation of a parent class instance method and is resolved at runtime based on the object type.
 - Method hiding occurs when a subclass defines a static method with the same signature as the parent, and it is resolved at compile time based on the reference type.
+
+

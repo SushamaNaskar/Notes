@@ -1,6 +1,6 @@
 # Singleton class
 - A Singleton class in Java is a class that allows only one object (instance) to be created for the entire application.
-- A Singleton ensures only one instance exists and provides a global access point to it.
+- A Singleton class ensures only one instance exists and provides a global access point for it.
 
 # 🔑 Key Characteristics
 - Constructor is private → prevents object creation using new

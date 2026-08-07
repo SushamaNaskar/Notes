@@ -1,12 +1,15 @@
 # Controller Layer in Spring Boot
-
 The Controller Layer is the entry point of a Spring Boot application.
 
-Responsibilities:
+<!-- Responsibilities:
 - Handles HTTP requests
 - Accepts client data
 - Calls Service layer
-- Returns response to client
+- Returns response to client -->
+
+- Receives HTTP requests
+- Calls service methods
+- Returns response
 
 Flow:
 ```
@@ -171,7 +174,6 @@ Without @ResponseBody, Spring will think "Hello" is a view name.
 - @RestController is used for REST APIs and returns JSON/XML data directly. 
 
 # @RequestMapping
-
 Used to define:
 - Base URL
 - HTTP method
@@ -197,10 +199,25 @@ Example:
 /employees/all
 ```
 
+# @CrossOrigin
+Used to allow frontend apps to access backend APIs.
+
+```
+@CrossOrigin(origins = "http://localhost:3000")
+@RestController
+public class EmployeeController {
+
+}
+```
+
+# Why do we use @CrossOrigin?
+Because browsers block requests from different origins due to: CORS Policy
+
 # Dynamic URLs
 
 ## A. @PathVariable
-Used when value is mandatory.
+- Comes from URL path
+- Used when value is mandatory.
 
 Example:
 ```
@@ -232,6 +249,9 @@ URL:
 ```
 
 ## B. @RequestParam
+- Comes from Query parameter 
+- can be optional ,we use required = false for optional parameters.
+
 Used for:
 - Optional filtering
 - Searching
@@ -305,21 +325,6 @@ Answer:
 - @RequestBody triggers HttpMessageConverters.
 - Jackson maps JSON fields to Java object fields.
 
-# @ResponseBody
-Returns data directly as JSON instead of rendering view.
-
-```
-@ResponseBody
-@GetMapping("/test")
-public String test() {
-    return "Hello";
-}
-```
-
-Already included inside:
-```
-@RestController
-```
 
 # @RequestHeader
 Used to read HTTP headers.
@@ -335,21 +340,6 @@ public String getEmployee(
 - Common Interview Topic:
 
 JWT tokens are usually passed in Authorization header.
-
-# @CrossOrigin
-Used to allow frontend apps to access backend APIs.
-
-```
-@CrossOrigin(origins = "http://localhost:3000")
-@RestController
-public class EmployeeController {
-
-}
-```
-
-# Why do we use @CrossOrigin?
-Because browsers block requests from different origins due to: CORS Policy
-
 
 # GET API — @GetMapping
 Used to fetch data.
@@ -407,6 +397,22 @@ public String deleteEmployee(@PathVariable Long id) {
     employeeService.delete(id);
     return "Deleted Successfully";
 }
+```
+
+# @ResponseBody
+Returns data directly as JSON instead of rendering view.
+
+```
+@ResponseBody
+@GetMapping("/test")
+public String test() {
+    return "Hello";
+}
+```
+
+Already included inside:
+```
+@RestController
 ```
 
 

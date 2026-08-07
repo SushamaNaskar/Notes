@@ -210,3 +210,34 @@ if (ans) {
 }
 
 ```
+
+
+## My understanding
+Imagine there is a river with rocks.
+
+Each rock has a number written on it.
+
+The number tells you:
+
+"From this rock, you can jump at most this many rocks ahead."
+
+For every rock you can stand on:
+
+On a piece of paper, write:
+
+- Farthest rock I can currently reach from this rock = current index + jump
+- and upto now the farthest rock I can reach = max(previous Farthest Reach, current index + jump length)
+- and keep going
+    - If your Farthest  Reach value reaches or passes the last rock, you know the last rock is reachable.
+
+How do I know I'm stuck?
+- Paper says Farthest rock is 3
+- But you're now trying to examine rock 4
+
+Rock 4 is beyond the farthest rock you could ever reach from any previous rocks.
+That means you can never stand on Rock 4, so you can't continue.
+You're stuck.
+
+Return: false
+
+The paper doesn't record the path I took—it only records the farthest place I can possibly reach so far.

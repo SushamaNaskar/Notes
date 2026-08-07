@@ -1,6 +1,6 @@
 # Method References :: Operator
 - Method References (Java 8+) are a shorter, cleaner way to write lambda expressions when the lambda just calls an existing method.
-- Instead of writing a full lambda, you can refer directly to an existing method.
+- Instead of writing a full lambda, we can refer directly to an existing method.
 
 # :: called as Reference Operator
 

@@ -4,7 +4,7 @@
    - methods,
    - blocks/ initialization blocks and 
    - nested classes. 
-- A static member belongs to the class, so only one copy exists and it is shared by all instances/objects of that class.
+- A static member belongs to the class, so only one copy exists and it is shared by all objects of that class.
 
 # Static Variable
 - Belongs to the class.
@@ -84,7 +84,7 @@ Parent
 ```
 
 ### Reason:
-Static methods use the reference type.
+Static methods are resolved at compile time using the reference type
 
 
 # Static Method Overloading

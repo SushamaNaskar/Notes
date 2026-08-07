@@ -13,7 +13,7 @@ IoC Container is a component of Spring that:
 @Component
 class Engine {}
 ```
-Spring automatically creates this object.
+Spring automatically creates its object.
 
 # ✅ 2. Injects Dependencies
 ``` 
@@ -25,7 +25,7 @@ class Car {
 ```
 👉 No new Engine() needed — container injects it.
 
-# 3. Manages Lifecycle
+# 3. Manages Lifecycle /Bean lifecycles
 - Object creation
 - Initialization
 - Destruction

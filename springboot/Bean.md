@@ -32,10 +32,13 @@ Annotations = Instructions for Spring
 
 ## @PostConstruct
 <!-- The @PostConstruct annotation is used to mark a method that should be invoked immediately after a bean has been constructed and all of its dependencies have been injected. -->
-@PostConstruct is used to mark a method that runs right after an object (bean) is created and all its required dependencies  have been injected.
+- @PostConstruct is used to mark a method that runs right after
+- an object (bean) is created and all its required dependencies  have been injected.
 
 ## @PreDestroy
-The @PreDestroy annotation is used to mark a method that should be invoked just before a bean is destroyed by the container. This method can perform any necessary cleanup or resource releasing tasks.
+- The @PreDestroy annotation is used to mark a method that should be invoked 
+- just before a bean is destroyed by the container. 
+- This method can perform any necessary cleanup or resource releasing tasks.
 
 # Scope of Beans
 👉 How many objects are created?

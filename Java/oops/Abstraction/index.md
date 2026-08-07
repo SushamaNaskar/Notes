@@ -66,17 +66,18 @@ public class Main {
 ```
 
 # Interface
-- A completely abstract blueprint (until Java 7), now slightly flexible
+- A completely abstract blueprint (until Java 7)
+- From Java 8 supports:
+  * default methods
+  * static methods
+- From Java 9 supports:
+  * private methods (inside interface)
 
 ## ✔️ Key Points:
 - Methods are public & abstract by default
 - Variables are public static final (constants)
 - Supports multiple inheritance
-- From Java 8:
-  * default methods
-  * static methods
-- From Java 9:
-  * private methods (inside interface)
+
 
 ## ✔️ Example:
 

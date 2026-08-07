@@ -1,6 +1,7 @@
 # final
-- final is used to make variables constant, methods non-overridable, and classes non-inheritable.
 👉 Used to restrict modification
+- final is used to make variables constant, methods non-overridable, and classes non-inheritable.
+
 
 # Can be applied to:
 
@@ -48,10 +49,14 @@ public static final int x = 10;
 # Key points:
 - Final variable → Cannot be reassigned
 - Blank final variable → Must be initialized exactly once
+
 - Final reference → Reference cannot change; object state can
-- Final array → Elements can change; array reference cannot
+- Final array → array reference cannot change, Elements can change
+
 - Final method → Cannot be overridden (can be overloaded)
+
 - Final class → Cannot be inherited
 - Constructors cannot be final
+
 - abstract final class or method is illegal
 - Interface fields are implicitly public static final

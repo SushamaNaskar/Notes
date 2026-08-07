@@ -1,4 +1,5 @@
 # Types of Inheritance
+- 5
 
 ## 1. Single Inheritance
 ➡ One child inherits from one parent
@@ -85,7 +86,7 @@ A     B
 
 # 🔥 One-Line Answer
 
-“Java avoids multiple inheritance with classes due to the diamond problem, but allows it using interfaces where the implementing class resolves ambiguity.”
+“Java avoids multiple and hybrid inheritance with classes due to the diamond problem, but allows it using interfaces where the implementing class resolves ambiguity.”
 
 
 

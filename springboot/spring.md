@@ -1,5 +1,5 @@
 #  What is Spring Framework?
-Spring = a framework that helps you write clean, loosely coupled Java applications
+Spring = a framework that helps us write clean, loosely coupled Java applications
 
 # 🔴 Problem (Without Spring)
 
@@ -36,7 +36,28 @@ This is called:
 - Connects them
 - Manages lifecycle
 
-# Spring vs Spring Boot
+# Spring
+- Spring is a Java framework 
+- that provides features like 
+  * Dependency Injection
+  * AOP
+  * MVC
+- but it requires more manual configuration. 
+
+# Spring Boot
+- Spring Boot is built on top of Spring
+- it simplifies development by providing 
+  * auto-configuration, 
+  * embedded servers (like Tomcat), 
+  * and starter dependencies,
+allowing us to create production-ready applications much faster.
+
+
+<!-- or 
+Spring is the core framework for building Java applications. Spring Boot extends Spring by reducing configuration through auto-configuration and embedded servers, making development faster and easier. -->
+
+# AOP (Aspect-Oriented Programming)
+separates cross-cutting concerns like logging, security, and transactions from business logic, making the code cleaner and easier to maintain.
 
 ## ❌ Spring (Old Way)
 - lot of configuration
@@ -62,5 +83,11 @@ Step-by-step:
 7. App ready 🚀
 
 
-# "@SpringBootApplication
- is the main annotation in Spring Boot applications. It is a combination of @Configuration, @EnableAutoConfiguration, and @ComponentScan. It helps Spring Boot automatically configure the application, scan components, and manage beans, reducing manual configuration."
+# Annotations 
+Annotations are metadata (prefixed with @) that tell Java or Spring how a class, method, or field should behave, reducing manual configuration and making the code cleaner.
+
+
+# @SpringBootApplication
+ - is the main annotation in Spring Boot applications. 
+ - It is a combination of @Configuration, @EnableAutoConfiguration, and @ComponentScan. 
+ - It helps Spring Boot automatically configure the application, scan components, and manage beans, reducing manual configuration.

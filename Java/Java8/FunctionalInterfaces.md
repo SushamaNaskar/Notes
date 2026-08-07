@@ -2,8 +2,7 @@
 - A Functional Interface is an interface that contains exactly one abstract method.
 - also called Single Abstract Method interfaces (SAM Interfaces).
 
-## Apart from one abstract method, a functional interface can also have the following methods
-that do not count for defining it as a functional interface.
+## Apart from one abstract method, a functional interface can also have the following methods (that do not count for defining it as a functional interface.)
 * Default methods
 * Static methods
 * Public methods inherited from the Object class/ Object class methods
@@ -58,10 +57,42 @@ System.out.println(add.sum(5, 3));  // 8
 ```
 @FunctionalInterface
 interface Demo {
-    void show();  // abstract
+    void show();
 
     default void display() {
         System.out.println("Default method");
+    }
+}
+
+```
+
+using lambda
+```
+public class Main {
+    public static void main(String[] args) {
+        Demo obj = () -> System.out.println("Abstract method implementation");
+
+        obj.show();
+        obj.display();
+    }
+}
+```
+
+using implementing class
+```
+class Test implements Demo {
+    @Override
+    public void show() {
+        System.out.println("Abstract method implementation");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Demo obj = new Test();
+
+        obj.show();      // calls implemented abstract method
+        obj.display();   // calls default method
     }
 }
 ```
@@ -72,7 +103,6 @@ interface Demo {
 
 
 # 🔹 Built-in Functional Interfaces (VERY IMPORTANT)
-
 - Consumer, Supplier, Function, and Predicate are built-in functional interfaces in Java used to represent behavior for lambda expressions.
 
 - They are part of: 

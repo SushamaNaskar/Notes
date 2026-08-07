@@ -110,7 +110,7 @@ key → hashCode() → index → bucket → equals() → insert/update
 - When we insert a key-value pair, it computes the hashCode of the key and maps it to an index using a hash function. 
 - If multiple keys map to the same index, collisions are handled using a linked list or a red-black tree in Java 8+.
 - Retrieval uses hashCode and equals to locate the correct entry. 
-- It resizes dynamically based on load factor.”
+- It resizes dynamically based on load factor.
 
 ## How get(key) Works
 
