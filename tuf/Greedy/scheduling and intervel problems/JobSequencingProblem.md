@@ -3,7 +3,7 @@ Given an 2D array Jobs of size Nx3, where Jobs[i][0] represents JobID , Jobs[i][
 
 The profit associated with a job is earned only if it is completed by its deadline. Find the number of jobs and maximum profit.
 
-# Example 1
+## Example 1
 
 Input : Jobs = [ [1, 4, 20] , [2, 1, 10] , [3, 1, 40] , [4, 1, 30] ]
 
@@ -19,7 +19,7 @@ Total number of jobs completed are two, JobID 1, JobID 3.
 
 So answer is 2 60.
 
-# Example 2
+## Example 2
 
 Input : Jobs = [ [1, 2, 100] , [2, 1, 19] , [3, 2, 27] , [4, 1, 25] , [5, 1, 15] ]
 
@@ -34,6 +34,14 @@ No more jobs can be scheduled, So total Profit = 100 + 27 => 127.
 Total number of jobs completed are two, JobID 1, JobID 3.
 
 So answer is 2 127.
+
+## Example 3
+
+Input : Jobs = [ [1, 1, 100] , [2, 2, 200] , [3, 3, 300] , [4, 4, 400] ]
+
+Output:
+
+4 1000
 
 
 # Constraints
@@ -82,11 +90,11 @@ This involves choosing an order to execute jobs in a way that maximises profit w
 The strategy to maximize profit involves prioritizing jobs that offer higher profits. To achieve this, the jobs should be sorted in descending order of profit. For example, a job with a deadline of 4 can be completed anytime between day 1 and day 4. However, performing the job on its last possible day is more beneficial. This leaves earlier days available for other jobs, optimizing the schedule and allowing more jobs to be completed within their deadlines.
 
 # Approach
-Sort the jobs in descending order of profit.
-Determine the maximum deadline and create an array of that size. Initially, set each array index to -1 to indicate no jobs have been scheduled.
-For each job, check if it can be scheduled as late as possible before its deadline.
-If possible, mark that index with the job ID and add the profit to the total profit.
-If not possible, check the previous days until an empty slot is found.
+- Sort the jobs in descending order of profit.
+- Determine the maximum deadline and create an array of that size. Initially, set each array index to -1 to indicate no jobs have been scheduled.
+- For each job, check if it can be scheduled as late as possible before its deadline.
+    * If possible, mark that index with the job ID and add the profit to the total profit.
+    * If not possible, check the previous days until an empty slot is found.
 
 # Solution
 

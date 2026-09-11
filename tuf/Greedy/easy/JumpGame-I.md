@@ -6,11 +6,7 @@ Given an array of integers nums, each element in the array represents the maximu
 
 Input : [2, 3, 1, 1, 4]
 
-
-
 Output : true
-
-
 
 Explanation : We can simply take Jump of 1 step at each index to reach the last index.
 
@@ -18,10 +14,7 @@ Explanation : We can simply take Jump of 1 step at each index to reach the last 
 
 Input : [3, 2, 1, 0, 4]
 
-
-
 Output : false
-
 
 
 Explanation : No matter how you make jumps you will always reach the third index (0 base) of the array.
@@ -68,7 +61,6 @@ Extend the greedy approach by tracking the end of the current jump range and cou
 Modify the greedy solution to store the path by keeping track of the index from which each jump was made. Backtrack from the last index to reconstruct the path.
 
 # Fun Facts
-
 
 ## Fact 1
 This problem's underlying concept is applied in routing and networking protocols.
@@ -210,6 +202,10 @@ if (ans) {
 }
 
 ```
+
+# Complexity Analysis
+Time Complexity: O(N) where N is the length of the array. We iterate through the input array exactly once and at each element perform constant time operations.
+Space Complexity: O(1) no extra space used.
 
 
 ## My understanding

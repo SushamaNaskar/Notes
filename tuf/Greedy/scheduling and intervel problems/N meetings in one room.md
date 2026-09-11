@@ -1,5 +1,5 @@
 # N meetings in one room
-Given one meeting room and N meetings represented by two arrays, start and end, where start[i] represents the start time of the ith meeting and end[i] represents the end time of the ith meeting, determine the maximum number of meetings that can be accommodated in the meeting room if only one meeting can be held at a time.
+Given one meeting room and N meetings represented by two arrays, start and end, where start[i] represents the start time of the ith meeting and end[i] represents the end time of the ith meeting, determine the maximum number of meetings that can be accommodated in the meeting room if only one meeting can be held at a time. A meeting starting at the same time another meeting ends is considered overlapping.
 
 # Example 1
 
@@ -38,6 +38,7 @@ If all meetings overlap, only one meeting (the one with the earliest end time) c
 # Interview Follow-ups
 ## What if there are multiple meeting rooms?
 If multiple rooms are available, the problem becomes a meeting room allocation problem, which can be solved using a min-heap to track the end times of ongoing meetings.
+
 ## What is the difference between this and the interval scheduling maximization problem?
 This is a specific case of interval scheduling maximization, where the goal is to select the maximum number of non-overlapping intervals from a set of intervals.
 
@@ -59,8 +60,8 @@ If there are two meetings, one that finishes early and another that finishes lat
 - Sort the meetings based on their end times in ascending order. This ensures that the meetings which finish earliest are considered first.
 - Create a variable to keep track of the end time of the last selected meeting. Also, initialize a counter to count the number of meetings that can be accommodated.
 - Loop through the sorted meetings and for each meeting:
-  - Check if the start time of the current meeting is greater than the end time of the last selected meeting.
-  - If true, select the current meeting, update the end time to the end time of the current meeting, and increment the counter.
+  * Check if the start time of the current meeting is greater than the end time of the last selected meeting.
+  * If true, select the current meeting, update the end time to the end time of the current meeting, and increment the counter.
 - After iterating through all meetings, the counter will contain the maximum number of non-overlapping meetings that can be accommodated.
 
 # Solution
@@ -188,6 +189,10 @@ const maxMeetings = obj.maxMeetings(start, end);
 console.log("Maximum number of meetings:", maxMeetings);
 
 ```
+
+# Complexity Analysis
+Time Complexity: O(N+N logN) where 𝑁 is the size of the start and end arrays. The O(N) term accounts for filling the meetings array with start and end times. The O(NlogN) term arises from sorting the meetings based on their end times. After sorting, the function iterates through the sorted meetings in O(N) time to count the maximum number of non-overlapping meetings.
+Space Complexity: O(N) since we used an additional data structure for storing the start time and end time.
 
 # My understanding
 We have

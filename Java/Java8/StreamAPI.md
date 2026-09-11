@@ -1,11 +1,12 @@
 # Stream API
-- A Stream represents a sequence of elements from a source, such as a collection, array, or I/O channel, that can be processed in a pipeline of operations. 
+<!-- - A Stream represents a sequence of elements from a source, such as a collection, array, or I/O channel, that can be processed in a pipeline of operations.  -->
+- carries data through a pipeline of operations to produce a desired result.
 - These operations can be intermediate (e.g., filtering, mapping) or terminal (e.g., collecting results, printing).
-
 👉 stream does not store data — it processes data from sources like:
    * Collections (List, Set)
    * Arrays
    * I/O channels
+
 
 
 ```
@@ -15,6 +16,13 @@ list.stream()
     .sorted()
     .forEach(System.out::println);
  ```
+
+# 🔹 Important Points (Interview Focus)
+- Streams are not reusable
+- Streams do not modify original data
+- Supports method chaining
+- Works with lambda expressions
+- Can be parallel
 
 # Intermediate operationa
 - Intermediate operational methods will not produce any results. 
@@ -33,12 +41,7 @@ list.stream()
   * reduce()
 
 
-# 🔹 Important Points (Interview Focus)
-- Streams are not reusable
-- Streams do not modify original data
-- Supports method chaining
-- Works with lambda expressions
-- Can be parallel
+
 
 # Streams are not reusable
 👉 Once a stream is used (consumed), you cannot use it again.

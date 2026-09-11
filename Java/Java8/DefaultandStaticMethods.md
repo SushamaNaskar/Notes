@@ -5,6 +5,12 @@ Default and static methods in Java interfaces were introduced in Java 8 to make 
 # Default Methods in Interfaces
 A default method is a method inside an interface that has a body (implementation).
 
+## 🔑 Key Points
+- Has method body
+- Uses default keyword
+- Can be overridden by implementing class
+- Helps in backward compatibility
+
 # Why it was introduced?
 Before Java 8, if you added a new method to an interface, all implementing classes would break.
 
@@ -39,11 +45,7 @@ public class Main {
 }
 ```
 
-## 🔑 Key Points
-- Has method body
-- Uses default keyword
-- Can be overridden by implementing class
-- Helps in backward compatibility
+
 
 ## Override Example
 ```
@@ -58,6 +60,14 @@ class Dog implements Animal {
 
 # Static Methods in Interfaces
 A static method in an interface belongs to the interface itself, not objects.
+
+## 🔑 Key Points
+- Belongs to interface, not class object
+- Cannot be overridden
+- Must be called using:
+```
+InterfaceName.methodName();
+```
 
 ## syntax
 ```
@@ -82,13 +92,7 @@ public class Main {
     }
 }
 ```
-## 🔑 Key Points
-- Belongs to interface, not class object
-- Cannot be overridden
-- Must be called using:
-```
-InterfaceName.methodName();
-```
+
 
 
 # When to Use What?

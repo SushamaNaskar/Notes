@@ -14,7 +14,12 @@ but no business logic.
 ## Real Interview Answer
 - DTO stands for Data Transfer Object.
 - It is used to transfer data between layers of application, especially between client and server.
-- DTO helps hide sensitive data, improves security, supports validation, and keeps API layer separate from database entities.
+- DTO 
+  * hide sensitive data
+  * improves security, 
+  * supports validation, and 
+  * keeps API layer separate from database entities - Avoid exposing database structure
+  * Send Only Required Data(Customize API response).
 
 # Why Do We Use DTO?
 Suppose your database entity is:

@@ -1,7 +1,6 @@
 # Question
 Consider a scenario where a teacher wants to distribute cookies to students, with each student receiving at most one cookie.
 
-
 Given two arrays, student and cookie, the ith value in the Student array describes the minimum size of cookie that the ith student can be assigned. The jth value in the Cookie array represents the size of the jth cookie. If Cookie[j] >= Student[i], the jth cookie can be assigned to the ith student.
 
 Maximize the number of students assigned with cookies and output the maximum number.
@@ -52,11 +51,12 @@ Output:
 
 
 
-#  Hint 1
+# Hints
+##  Hint 1
 Use one pointer to traverse the Student array and another to traverse the Cookie array. If the current cookie satisfies the current student (i.e., Cookie[j] >= Student[i]), assign the cookie to the student and move both pointers forward.
 
 
-# Hint 2
+## Hint 2
 The goal is to assign the smallest cookie possible to each student that can satisfy their requirement. This greedy approach minimizes wasted resources and ensures that more students can be assigned cookies.
 
 
@@ -199,6 +199,14 @@ const result = solution.findMaximumCookieStudents(Student, Cookie);
 console.log("Number of students satisfied:", result);
 
 ```
+
+# Complexity Analysis
+Time Complexity: O(N logN + M logM + min(N, M)) where N is the length of the student array, and M is the length of the cookies array.
+
+Sorting the student array takes O(N logN) time, and sorting the cookies array takes O(M logM) time. After sorting, both arrays are traversed simultaneously using two pointers, each moving at most once, leading to O(min(N, M)) iterations.
+Therefore, the total time complexity is O(N logN + M logM + min(N, M)).
+
+Space Complexity: O(1) no extra space used.
 
 
 # My Understanding

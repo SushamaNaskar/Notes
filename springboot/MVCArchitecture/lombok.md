@@ -2,6 +2,15 @@
  A library that reduces "boilerplate" code. It automatically generates things like getters, setters, and constructors for you.
  - Lombok generates them automatically at compile time using annotations.
 
+# Lombok in Spring Boot
+Very commonly used in:
+
+- DTOs
+- Entities
+- Services
+- Controllers
+- Configuration classes
+
  # Why We Use Lombok
  ## Without Lombok:
  ```
@@ -52,6 +61,28 @@ Maven
 ```
 
 # Important Lombok Annotations
+- @Getter — Generates getter methods.
+- @Setter — Generates setter methods.
+- @NoArgsConstructor — Generates an empty constructor.
+- @AllArgsConstructor — Generates a constructor with all fields.
+- @RequiredArgsConstructor — Generates a constructor for final and @NonNull fields.
+- @Data — Combines:
+      * @Getter
+      * @Setter
+      * @ToString
+      * @EqualsAndHashCode
+      * @RequiredArgsConstructor
+- @Builder — Generates the Builder pattern for readable and flexible object creation.
+- @ToString — Generates toString() method.
+- @EqualsAndHashCode — Generates equals() and hashCode().
+- @Slf4j — Automatically creates an SLF4J logger --> named log.
+
+
+# Why is @RequiredArgsConstructor preferred in Spring Boot?
+Because it supports constructor injection with final fields, making dependencies immutable and easier to test.
+
+
+
 
 ## 1. @Getter
 Generates getter methods.
@@ -135,7 +166,7 @@ Important for:
 - JPA/Hibernate
 - Jackson JSON conversion
 
-# 6. @AllArgsConstructor
+## 6. @AllArgsConstructor
 Creates constructor with all fields.
 
 ```
@@ -175,8 +206,10 @@ public Employee(EmployeeService service) {
 }
 ```
 
-## 8. @Data
 
+
+
+## 8. @Data
 - Most popular Lombok annotation.
 
 Includes:
@@ -196,7 +229,6 @@ public class EmployeeDTO {
 ```
 
 ## 9. @Builder
-
 - It implements the Builder Design Pattern automatically.
 
 - Builder pattern helps create objects in a:
@@ -237,7 +269,6 @@ new Employee(1L, "IT", "Rahul", 50000.0);
 Wrong order → bugs.
 
 ### 3. Too Many Parameters
-
 Large constructors become messy.
 
 ## With builder:
@@ -279,16 +310,4 @@ private static final Logger logger =
     LoggerFactory.getLogger(EmployeeService.class);
 ```
 
-# Lombok in Spring Boot
 
-Very commonly used in:
-
-- DTOs
-- Entities
-- Services
-- Controllers
-- Configuration classes
-
-# Why is @RequiredArgsConstructor preferred in Spring Boot?
-
-Because it supports constructor injection with final fields, making dependencies immutable and easier to test.

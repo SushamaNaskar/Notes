@@ -242,6 +242,12 @@ console.log("Resulting Intervals after Insertion:", result);
 
 ```
 
+# Complexity Analysis
+Time Complexity: O(N) where N is the number of intervals.This is because we iterate through the intervals linearly in a single pass.
+During this pass, we perform three main operations: inserting intervals that come before the new interval, merging overlapping intervals with the new interval, and inserting intervals that come after the new interval.
+Each of these operations is done within the same traversal of the intervals array, ensuring that the algorithm maintains a linear time complexity.
+Space Complexity: O(N) where N is the number of intervals. We use an additional space to store the result list of intervals. In the worst case, where all intervals need to be included in the result list, the size of the result list will be equal to the size of the input list plus one.
+
 # My Understanding
  intervals= [ [1, 2] , [3, 5] , [6, 7] , [8,10],[12,14] ] 
  newInterval = [4, 8]

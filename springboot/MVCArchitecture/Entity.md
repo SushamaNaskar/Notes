@@ -2,6 +2,8 @@
 - An Entity represents a table in the database.
 - It is basically a Java class whose objects map to database rows.
 
+<!-- An Entity is a Java class that maps to a database table. Its fields map to columns, and its objects represent rows. -->
+
 ```
 @Entity
 @Table(name = "employees")
@@ -31,7 +33,7 @@ public class EmployeeEntity {
 | ----------------- | --------------------- |
 | `@Entity`         | Marks entity class    |
 | `@Table`          | Maps table            |
-| `@Id`             | Primary key           |
+| `@Id`             | Marks Primary key     |
 | `@Column`         | Maps column           |
 | `@GeneratedValue` | Auto ID generation    |
 | `@OneToOne`       | One-to-one relation   |
@@ -78,7 +80,7 @@ INSERT INTO employees (name) VALUES ('Rahul');
 ```
 
 # Why We Use Entity
-- Represents database data
+<!-- - Represents database data -->
 - Helps ORM mapping
 - Avoids manual SQL handling
 - Converts objects to rows automatically

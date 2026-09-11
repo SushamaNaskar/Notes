@@ -5,6 +5,8 @@ You are given an array of integers bt of size n representing the burst times (ex
 
 Your task is to calculate the average waiting time for all processes when scheduled using the SJF policy. The waiting time of a process is the total time a process has to wait before its execution starts, which is the sum of burst times of all previously executed processes.
 
+Return the floor of the average waiting time, i.e., the largest whole number less than or equal to the actual average.
+
 # Example 1
 
 Input : bt = [4, 1, 3, 7, 2]
@@ -156,6 +158,10 @@ const solution = new Solution();
 const ans = solution.solve(jobs);
 console.log("Total waiting time: " + ans);
 ```
+
+# Complexity Analysis
+Time Complexity: O(N logN + N) where N is the length of the jobs array.The code first sorts the job durations, which takes O(N logN) time. After sorting, it iterates through the job durations to calculate the total waiting time, which takes O(N) time.
+Space Complexity: O(1) no extra space used.
 
 # My understanding
 

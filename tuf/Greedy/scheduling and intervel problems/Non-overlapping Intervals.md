@@ -181,6 +181,10 @@ console.log(`Maximum Non-Overlapping Intervals: ${ans}`);
 
 ```
 
+# Complexity Analysis
+Time Complexity: O(N log N + N) where N is the number of intervals. We sort the intervals based on their end timings which takes up O(N log N). We then iterate over the sorted intervals to find the maximum number of non-overlapping intervals.
+Space Complexity: O(1) as no additional data structure has been used.
+
 # My understanding
 Remove the minimum number of intervals.
 

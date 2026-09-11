@@ -2,6 +2,8 @@
 - The Optional class is a container object 
 - used to avoid NullPointerException by representing a value that may or may not be present.
 
+Optional is a wrapper class/object used to represent either a value or the absence of a value, instead of directly returning null.
+
 # 🔹 What is Optional?
 
 Think of it like a box:
@@ -10,6 +12,17 @@ Think of it like a box:
 📦 Box empty → Optional.empty()
 
 Instead of returning null, methods return Optional.
+
+```
+Optional<String> name = Optional.of("Sushama");
+```
+
+Here:
+
+Optional<String> → the type
+name → reference variable
+Optional.of("Sushama") → an Optional object
+The object contains "Sushama"
 
 # 🔹 Why use Optional?
 Before Java 8:

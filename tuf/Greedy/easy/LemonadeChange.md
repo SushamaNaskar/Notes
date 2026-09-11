@@ -3,8 +3,6 @@ Each lemonade at a booth sells for $5. Consumers are lining up to place individu
 
 Determine if it is possible to provide the correct change to every customer. Return true if the correct change can be given to every customer, and false otherwise.
 
-
-
 Given an integer array bills, where bills[i] is the bill the ith customer pays, return true if the correct change can be given to every customer, and false otherwise.
 
 # Example 1
@@ -33,11 +31,7 @@ Since all the customers did receive the change correctly , so we return true.
 
 Input : bills = [5, 5, 10, 10, 20]
 
-
-
 Output : false
-
-
 
 Explanation : From first two customers, we will collect two $5 bills in order. After the first two customers we have two $5 bills available with us for change.
 
@@ -54,6 +48,8 @@ Since all the customers did not receive the change correctly , the we return fal
 
 1 <= bills.length <= 105
 bills[i] = {5 , 10 , 20}
+
+# Hints
 
 # Hint 1
 Use variables to keep track of the count of $5 and $10 bills. Since $20 bills cannot be used as change directly, their count is irrelevant for making change.
@@ -277,6 +273,10 @@ else
     console.log("It is not possible to provide change for all customers.");
 
 ```
+
+# Complexity Analysis
+Time Complexity: O(N) where N is the number of people in the queue or the number of bills to be processed. Each customer's bill is processed exactly once. The loop iterates N times, and the operations performed during each iteration are done in constant time.
+Space Complexity: O(1) because no extra space is used.
 
 # My understanding
 Each lemonade sells for $5

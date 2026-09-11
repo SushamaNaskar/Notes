@@ -58,5 +58,11 @@ public static final int x = 10;
 - Final class → Cannot be inherited
 - Constructors cannot be final
 
-- abstract final class or method is illegal
+- abstract final class or method is illegal / abstract and final cannot be used together on the same method or class.
 - Interface fields are implicitly public static final
+
+
+# abstract and final cannot be used together on the same method or class.
+They represent opposite ideas:
+abstract → "This must be implemented/overridden by a subclass."
+final → "This cannot be overridden."
